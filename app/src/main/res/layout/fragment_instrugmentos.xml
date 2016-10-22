@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.innovagenesis.aplicaciones.android.activdadfinalunidadtres.InstrumentosFragment">
+
+    <TextView
+        android:id="@+id/txt_descripcion"
+        style="@style/repartirVertical"
+        android:layout_weight="2"/>
+
+    <LinearLayout
+        style="@style/repartirVertical"
+        android:layout_weight="4"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            style="@style/repartirHorizontal"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <ImageView
+                android:id="@+id/imgIzquierda"
+                style="@style/repartirVertical"
+                android:layout_weight="4"
+                android:src="@drawable/music" />
+
+            <LinearLayout
+                style="@style/repartirVertical"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    style="@style/botonesAccion"
+                    android:src="@drawable/favoritos" />
+
+                <ImageButton
+                    style="@style/botonesAccion"
+                    android:src="@drawable/play" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/repartirHorizontal"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgDerecha"
+                style="@style/repartirVertical"
+                android:layout_weight="4"
+                android:src="@drawable/music" />
+
+            <LinearLayout
+                style="@style/repartirVertical"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    style="@style/botonesAccion"
+                    android:src="@drawable/favoritos" />
+
+                <ImageButton
+                    style="@style/botonesAccion"
+                    android:src="@drawable/play" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtfootpageTitle"
+        style="@style/footpage"
+        android:layout_weight="1"
+        android:text="@string/footpage"/>
+
+    <TextView
+        android:id="@+id/txtfootpageWeb"
+        style="@style/footpageWeb"
+        android:text="@string/webPage"
+        android:layout_weight="1" />
+
+</LinearLayout>

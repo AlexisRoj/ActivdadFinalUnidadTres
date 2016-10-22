@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">ActivdadFinalUnidadTres</string>
+
+    <string name="link">http://www.fdartesnextu.com</string>
+    <string name="certificacion_android">Certificación Android</string>
+    <string name="descripcion_android">Descripción de la certificación de desarrollo en Android.</string>
+
+    <string-array name="instrumentos">
+        <item>Instrumentos de Cuerda</item>
+        <item>Instrumentos de Percusion</item>
+        <item>Instrumentos de Viento</item>
+        <item>Instrumentos Electricos</item>
+    </string-array>
+
+    <string-array name="descripciones">
+        <item>
+            Los instrumentos de cuerda o cordófonos son instrumentos musicales que producen sonidos
+            por medio de las vibraciones de una o más cuerdas, usualmente amplificadas por medio de
+            una caja de resonancia.
+        </item>
+        <item>
+            Un instrumento de percusión es un tipo de instrumento musical cuyo sonido se origina al
+            ser golpeado o agitado. Es, quizá, la forma más antigua de instrumento musical.
+        </item>
+        <item>
+            Los instrumentos de viento o aerófonos son una familia de instrumentos musicales que
+            producen el sonido por la vibración del viento y de la masa de aire en su interior,
+            sin necesidad de cuerdas o membranas porque solo requiere del uso del viento.
+        </item>
+        <item>
+            Un instrumento musical eléctrico es uno en el cual el uso de aparatos eléctricos
+            determina o afecta el sonido producido por un instrumento."Electric Musical Instruments."
+        </item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="footpage">Facultad de Artes</string>
+    <string name="webPage">http://www.fartesnetu.com</string>
+
+</resources>
