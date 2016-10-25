@@ -31,6 +31,7 @@ public class InstrumentosFragment extends Fragment {
         Bundle argumentos = new Bundle();
         argumentos.putInt(LLAVE_POSITION, postion);
         fragment.setArguments(argumentos);
+
         return fragment;
     }
 
@@ -62,7 +63,8 @@ public class InstrumentosFragment extends Fragment {
 
         if (argumentos != null) {
             actualizarVista(getArguments().getInt(LLAVE_POSITION));
-        }else{
+        }else if (positionActual != -1){
+            //Evita el crach de la tablet
             actualizarVista(positionActual);
         }
 
@@ -81,6 +83,21 @@ public class InstrumentosFragment extends Fragment {
 
             case 0:
                 instrumento = ContextCompat.getDrawable(getContext(),R.drawable.guitarra);
+                instrumento2 = ContextCompat.getDrawable(getContext(),R.drawable.violin);
+                break;
+
+            case 1:
+                instrumento = ContextCompat.getDrawable(getContext(),R.drawable.bateria);
+                instrumento2 = ContextCompat.getDrawable(getContext(),R.drawable.timbales);
+                break;
+
+            case 2:
+                instrumento = ContextCompat.getDrawable(getContext(),R.drawable.trompeta);
+                instrumento2 = ContextCompat.getDrawable(getContext(),R.drawable.saxofon);
+                break;
+
+            case 3:
+                instrumento = ContextCompat.getDrawable(getContext(),R.drawable.amplicador);
                 instrumento2 = ContextCompat.getDrawable(getContext(),R.drawable.electricguitar);
                 break;
         }
