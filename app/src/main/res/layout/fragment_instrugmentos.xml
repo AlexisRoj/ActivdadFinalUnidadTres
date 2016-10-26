@@ -33,12 +33,16 @@
                 android:orientation="horizontal">
 
                 <ImageButton
+                    android:id="@+id/imgBtnFavIzq"
                     style="@style/botonesAccion"
-                    android:src="@drawable/favoritos" />
+                    android:src="@drawable/favoritos"
+                    android:onClick="onBottonClick" />
 
                 <ImageButton
+                    android:id="@+id/imgBtnPlayIzq"
                     style="@style/botonesAccion"
-                    android:src="@drawable/play" />
+                    android:src="@drawable/play"
+                    android:onClick="onBottonClick" />
 
             </LinearLayout>
 
@@ -61,12 +65,16 @@
                 android:orientation="horizontal">
 
                 <ImageButton
+                    android:id="@+id/imgBtnFavDerch"
                     style="@style/botonesAccion"
-                    android:src="@drawable/favoritos" />
+                    android:src="@drawable/favoritos"
+                    android:onClick="onBottonClick" />
 
                 <ImageButton
+                    android:id="@+id/imgBtnPlayDerch"
                     style="@style/botonesAccion"
-                    android:src="@drawable/play" />
+                    android:src="@drawable/play"
+                    android:onClick="onBottonClick" />
 
             </LinearLayout>
 
@@ -84,6 +92,7 @@
     <TextView
         android:id="@+id/txtfootpageWeb"
         style="@style/footpageWeb"
+        android:onClick="onBottonClick"
         android:text="@string/webPage"
         android:layout_weight="1" />
 

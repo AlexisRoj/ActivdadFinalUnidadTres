@@ -8,8 +8,11 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -48,11 +51,10 @@ public class InstrumentosFragment extends Fragment {
         if (savedInstanceState != null) {
             positionActual = savedInstanceState.getInt(LLAVE_POSITION);
         }
-        return inflater.inflate(R.layout.fragment_instrugmentos, container, false);
+        View view = inflater.inflate(R.layout.fragment_instrugmentos, container, false);
 
 
-
-
+        return view;
     }
 
     @Override
@@ -112,4 +114,6 @@ public class InstrumentosFragment extends Fragment {
         /** Este metodo almacena la position actual*/
         outState.putInt(LLAVE_POSITION, positionActual);
     }
+
+
 }

@@ -1,7 +1,11 @@
 package com.innovagenesis.aplicaciones.android.activdadfinalunidadtres;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 implements ListaInstrumentos.IListaIntrumentos{
@@ -41,5 +45,41 @@ implements ListaInstrumentos.IListaIntrumentos{
                     .commit();
         }
 
+    }
+
+
+    public void onBottonClick(View view){
+
+        int id = view.getId();
+
+        switch (id){
+
+            case R.id.imgBtnPlayIzq:
+                enviarToast("Reproduciendo sonido del instrumento");
+                break;
+
+            case R.id.imgBtnPlayDerch:
+                enviarToast("Reproduciendo sonido del instrumento");
+                break;
+
+            case R.id.imgBtnFavIzq:
+                enviarToast("Instrumento agregado a Favoritos");
+                break;
+
+            case R.id.imgBtnFavDerch:
+                enviarToast("Instrumento agregado a Favoritos");
+                break;
+            case R.id.txtfootpageTitle:
+                /** Ejecuta un intent hacia una url **/
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.nextu.com"));
+                startActivity(intent);
+                break;
+        }
+
+    }
+
+    private void enviarToast(String mensaje) {
+
+        Toast.makeText(this, mensaje,Toast.LENGTH_SHORT).show();
     }
 }
