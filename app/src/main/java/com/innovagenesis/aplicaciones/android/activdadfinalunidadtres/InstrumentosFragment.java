@@ -1,24 +1,20 @@
 package com.innovagenesis.aplicaciones.android.activdadfinalunidadtres;
 
 
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 /**
  * A simple {@link Fragment} subclass.
+ * Encargado de actualizar el fragment de acuerdo a la necesidad
  */
 public class InstrumentosFragment extends Fragment {
 
@@ -74,9 +70,10 @@ public class InstrumentosFragment extends Fragment {
 
     }
 
+
     void actualizarVista(int position) {
 
-        /** Cambia imagenes y titulos en la app*/
+        /** Cambia imagenes y titulos en de acuerdo a la seleccion establecida*/
 
         TextView textDescripcion;
 
@@ -85,7 +82,7 @@ public class InstrumentosFragment extends Fragment {
         //((TextView)getActivity().findViewById(R.id.txt_descripcion)).setText(descripciones[position]);
 
         textDescripcion = (TextView)getActivity().findViewById(R.id.txt_descripcion);
-       // textDescripcion.setTypeface(Typeface.createFromAsset(getAssets(), "fuentes/FjallaOne.ttf"));
+        //textDescripcion.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "font/rabiohead.ttf"));
         textDescripcion.setText(descripciones[position]);
 
 
@@ -93,6 +90,8 @@ public class InstrumentosFragment extends Fragment {
         Drawable instrumento2 = null;
 
         switch (position) {
+
+            /** Este selector*/
 
             case 0:
                 getActivity().setTitle(getString(R.string.instCuerda));

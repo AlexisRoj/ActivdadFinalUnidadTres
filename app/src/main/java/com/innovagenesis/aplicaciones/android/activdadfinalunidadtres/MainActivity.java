@@ -10,10 +10,10 @@ import android.widget.Toast;
 
 import com.innovagenesis.aplicaciones.android.activdadfinalunidadtres.dialog.EjecutarDialog;
 
+import static com.innovagenesis.aplicaciones.android.activdadfinalunidadtres.R.string.actionBarInicial;
+
 public class MainActivity extends AppCompatActivity
-implements ListaInstrumentos.IListaIntrumentos, EjecutarDialog.OnSimpleDialogListener{
-
-
+        implements ListaInstrumentos.IListaIntrumentos, EjecutarDialog.OnSimpleDialogListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +31,12 @@ implements ListaInstrumentos.IListaIntrumentos, EjecutarDialog.OnSimpleDialogLis
             /** Instancia el fragment */
             ListaInstrumentos fragment = new ListaInstrumentos();
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.contenedor,fragment)
+                    .add(R.id.contenedor, fragment)
                     .commit();
         }
 
-        this.setTitle(R.string.actionBarInicial);
+        this.setTitle(actionBarInicial);
     }
-
-
 
     @Override
     public void instrumentoSelecionado(int position) {
@@ -48,80 +46,66 @@ implements ListaInstrumentos.IListaIntrumentos, EjecutarDialog.OnSimpleDialogLis
         InstrumentosFragment fragment = (InstrumentosFragment)
                 /** Si esta en la table instancia el fragmento detalle*/
                 getSupportFragmentManager().findFragmentById(R.id.fragment_detalle);
-        if (fragment != null){
+        if (fragment != null) {
 
             fragment.actualizarVista(position);
-        }else{
+        } else {
             /** Funciona exclusivo para el celular*/
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contenedor, InstrumentosFragment.getInstance(position))
                     .addToBackStack(null)
                     .commit();
         }
-
     }
 
-
-    public void onBottonClick(View view){
+    public void onBottonClick(View view) {
 
         int id = view.getId();
-
-        switch (id){
-
+        switch (id) {
             /** Selecciona mensaje de acuerdo al id del elemento, se declara en la propiedad
              * onClick de cada objeto*/
 
             case R.id.imgBtnPlayIzq:
                 enviarToast("Reproduciendo sonido del instrumento");
                 break;
-
             case R.id.imgBtnPlayDerch:
                 enviarToast("Reproduciendo sonido del instrumento");
                 break;
-
             case R.id.imgBtnFavIzq:
                 enviarToast("Instrumento agregado a Favoritos");
                 break;
-
             case R.id.imgBtnFavDerch:
                 enviarToast("Instrumento agregado a Favoritos");
                 break;
-
             case R.id.txtfootpageWeb:
                 /** Ejecuta un intent hacia una url **/
-
                 FragmentManager fragmentManager = getFragmentManager();
-                new EjecutarDialog().show(fragmentManager,"SimpleDialog");
-
-
+                new EjecutarDialog().show(fragmentManager, "SimpleDialog");
                 break;
         }
 
     }
 
     private void enviarToast(String mensaje) {
-
-        Toast.makeText(this, mensaje,Toast.LENGTH_SHORT).show();
+        /** Ejecuta cualquier mensaje necesario*/
+        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onBackPressed() {
-
         /** Retorma al titulo inicial cuando preciona back**/
         super.onBackPressed();
-        this.setTitle(R.string.actionBarInicial);
+        this.setTitle(actionBarInicial);
     }
 
     @Override
     public void onPossitiveButtonClick() {
-
+        /** Si preciona que si ejecuta el intent*/
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.nextu.com"));
         startActivity(intent);
-
     }
 
     @Override
     public void onNegativeButtonClick() {
-
     }
 }

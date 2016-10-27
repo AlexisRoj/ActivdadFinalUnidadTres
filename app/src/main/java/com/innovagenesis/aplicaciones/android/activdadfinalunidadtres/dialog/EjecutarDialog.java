@@ -1,8 +1,8 @@
 package com.innovagenesis.aplicaciones.android.activdadfinalunidadtres.dialog;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,9 +10,14 @@ import android.support.v7.app.AlertDialog;
 
 /**
  * Created by Alexis on 27/10/2016.
+ * Ejecuta el Dialog
+ *
  */
 
-public class EjecutarDialog extends DialogFragment{
+public class EjecutarDialog extends DialogFragment {
+
+    public EjecutarDialog() {
+    }
 
     public interface OnSimpleDialogListener {
         void onPossitiveButtonClick();
@@ -30,6 +35,7 @@ public class EjecutarDialog extends DialogFragment{
 
     /**
      * Crea un diálogo de alerta sencillo
+     *
      * @return Nuevo diálogo
      */
     public AlertDialog createSimpleDialog() {
@@ -55,19 +61,17 @@ public class EjecutarDialog extends DialogFragment{
         return builder.create();
     }
 
-
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Context context) {
+        super.onAttach(context);
 
         try {
-            listener = (OnSimpleDialogListener) activity;
+            listener = (OnSimpleDialogListener) context;
 
         } catch (ClassCastException e) {
             throw new ClassCastException(
-                    activity.toString() +
+                    context.toString() +
                             " no implementó OnSimpleDialogListener");
-
         }
     }
 }
