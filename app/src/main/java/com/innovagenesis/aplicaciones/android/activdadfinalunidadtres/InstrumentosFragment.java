@@ -78,14 +78,14 @@ public class InstrumentosFragment extends Fragment {
 
         /** Cambia imagenes y titulos en la app*/
 
-        TextView textDescripcion<
+        TextView textDescripcion;
 
         String[] descripciones = getResources().getStringArray(R.array.descripciones);
 
         //((TextView)getActivity().findViewById(R.id.txt_descripcion)).setText(descripciones[position]);
 
         textDescripcion = (TextView)getActivity().findViewById(R.id.txt_descripcion);
-        textDescripcion.setTypeface(Typeface.createFromAsset(getAssets(), "fuentes/FjallaOne.ttf"));
+       // textDescripcion.setTypeface(Typeface.createFromAsset(getAssets(), "fuentes/FjallaOne.ttf"));
         textDescripcion.setText(descripciones[position]);
 
 
