@@ -1,14 +1,19 @@
 package com.innovagenesis.aplicaciones.android.activdadfinalunidadtres;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 implements ListaInstrumentos.IListaIntrumentos{
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +34,11 @@ implements ListaInstrumentos.IListaIntrumentos{
                     .add(R.id.contenedor,fragment)
                     .commit();
         }
+
+        this.setTitle(R.string.actionBarInicial);
     }
+
+
 
     @Override
     public void instrumentoSelecionado(int position) {
@@ -43,6 +52,7 @@ implements ListaInstrumentos.IListaIntrumentos{
 
             fragment.actualizarVista(position);
         }else{
+            /** Funciona exclusivo para el celular*/
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.contenedor, InstrumentosFragment.getInstance(position))
                     .addToBackStack(null)
@@ -91,5 +101,13 @@ implements ListaInstrumentos.IListaIntrumentos{
     private void enviarToast(String mensaje) {
 
         Toast.makeText(this, mensaje,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        /** Retorma al titulo inicial cuando preciona back**/
+        super.onBackPressed();
+        this.setTitle(R.string.actionBarInicial);
     }
 }

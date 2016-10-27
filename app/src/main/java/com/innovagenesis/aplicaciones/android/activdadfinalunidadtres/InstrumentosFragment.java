@@ -1,10 +1,12 @@
 package com.innovagenesis.aplicaciones.android.activdadfinalunidadtres;
 
 
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +56,6 @@ public class InstrumentosFragment extends Fragment {
         }
         View view = inflater.inflate(R.layout.fragment_instrugmentos, container, false);
 
-
         return view;
     }
 
@@ -75,9 +76,18 @@ public class InstrumentosFragment extends Fragment {
 
     void actualizarVista(int position) {
 
+        /** Cambia imagenes y titulos en la app*/
+
+        TextView textDescripcion<
+
         String[] descripciones = getResources().getStringArray(R.array.descripciones);
 
-        ((TextView)getActivity().findViewById(R.id.txt_descripcion)).setText(descripciones[position]);
+        //((TextView)getActivity().findViewById(R.id.txt_descripcion)).setText(descripciones[position]);
+
+        textDescripcion = (TextView)getActivity().findViewById(R.id.txt_descripcion);
+        textDescripcion.setTypeface(Typeface.createFromAsset(getAssets(), "fuentes/FjallaOne.ttf"));
+        textDescripcion.setText(descripciones[position]);
+
 
         Drawable instrumento = null;
         Drawable instrumento2 = null;
@@ -85,21 +95,25 @@ public class InstrumentosFragment extends Fragment {
         switch (position) {
 
             case 0:
+                getActivity().setTitle(getString(R.string.instCuerda));
                 instrumento = ContextCompat.getDrawable(getContext(),R.drawable.guitarra);
                 instrumento2 = ContextCompat.getDrawable(getContext(),R.drawable.violin);
                 break;
 
             case 1:
+                getActivity().setTitle(getString(R.string.instPercusion));
                 instrumento = ContextCompat.getDrawable(getContext(),R.drawable.bateria);
                 instrumento2 = ContextCompat.getDrawable(getContext(),R.drawable.timbales);
                 break;
 
             case 2:
+                getActivity().setTitle(getString(R.string.instViento));
                 instrumento = ContextCompat.getDrawable(getContext(),R.drawable.trompeta);
                 instrumento2 = ContextCompat.getDrawable(getContext(),R.drawable.saxofon);
                 break;
 
             case 3:
+                getActivity().setTitle(getString(R.string.instElectricos));
                 instrumento = ContextCompat.getDrawable(getContext(),R.drawable.amplicador);
                 instrumento2 = ContextCompat.getDrawable(getContext(),R.drawable.electricguitar);
                 break;
@@ -115,6 +129,7 @@ public class InstrumentosFragment extends Fragment {
         /** Este metodo almacena la position actual*/
         outState.putInt(LLAVE_POSITION, positionActual);
     }
+
 
 
 }
