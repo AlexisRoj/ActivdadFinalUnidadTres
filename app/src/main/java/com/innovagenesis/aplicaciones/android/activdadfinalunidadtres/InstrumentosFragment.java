@@ -28,7 +28,8 @@ public class InstrumentosFragment extends Fragment {
 
 
     public static InstrumentosFragment getInstance(int postion) {
-        /** Recibe la posicion del fragment */
+        /** Recibe la posicion del fragment he instancia si no ha sido
+         * creado la vista*/
 
         InstrumentosFragment fragment = new InstrumentosFragment();
         Bundle argumentos = new Bundle();

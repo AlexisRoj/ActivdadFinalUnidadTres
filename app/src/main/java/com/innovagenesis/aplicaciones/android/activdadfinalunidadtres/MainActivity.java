@@ -34,9 +34,13 @@ implements ListaInstrumentos.IListaIntrumentos{
     @Override
     public void instrumentoSelecionado(int position) {
 
+        /** Interface*/
+
         InstrumentosFragment fragment = (InstrumentosFragment)
+                /** Si esta en la table instancia el fragmento detalle*/
                 getSupportFragmentManager().findFragmentById(R.id.fragment_detalle);
         if (fragment != null){
+
             fragment.actualizarVista(position);
         }else{
             getSupportFragmentManager().beginTransaction()
@@ -54,6 +58,9 @@ implements ListaInstrumentos.IListaIntrumentos{
 
         switch (id){
 
+            /** Selecciona mensaje de acuerdo al id del elemento, se declara en la propiedad
+             * onClick de cada objeto*/
+
             case R.id.imgBtnPlayIzq:
                 enviarToast("Reproduciendo sonido del instrumento");
                 break;
@@ -69,10 +76,13 @@ implements ListaInstrumentos.IListaIntrumentos{
             case R.id.imgBtnFavDerch:
                 enviarToast("Instrumento agregado a Favoritos");
                 break;
-            case R.id.txtfootpageTitle:
+
+            case R.id.txtfootpageWeb:
                 /** Ejecuta un intent hacia una url **/
+
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.nextu.com"));
                 startActivity(intent);
+
                 break;
         }
 

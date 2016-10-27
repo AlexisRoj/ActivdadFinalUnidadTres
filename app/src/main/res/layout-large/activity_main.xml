@@ -8,9 +8,8 @@
     <fragment
         android:id="@+id/fragment_lista"
         android:name="com.innovagenesis.aplicaciones.android.activdadfinalunidadtres.ListaInstrumentos"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_width="206dp"
+        android:layout_height="435dp"
         tools:layout="@android:layout/list_content" />
 
     <!--List_content es un template del sistema-->
