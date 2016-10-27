@@ -11,9 +11,10 @@
     <style name="botonesAccion">
         <!--Estilo de los botones de accion -->
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_height">45dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_margin">5dp</item>
+        <item name="android:background">@color/colorPrimary</item>
 
     </style>
 

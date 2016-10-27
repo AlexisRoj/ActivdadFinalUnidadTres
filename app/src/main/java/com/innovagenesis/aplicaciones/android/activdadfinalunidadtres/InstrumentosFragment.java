@@ -20,10 +20,8 @@ public class InstrumentosFragment extends Fragment {
 
     //Se crea una constante estatica que va almacenar la posicion.
     private static final String LLAVE_POSITION = "posicion";
-
     //Variable privada que va a recibir la position, se inicializa en -1
     private int positionActual = -1;
-
 
     public static InstrumentosFragment getInstance(int postion) {
         /** Recibe la posicion del fragment he instancia si no ha sido
@@ -37,11 +35,9 @@ public class InstrumentosFragment extends Fragment {
         return fragment;
     }
 
-
     public InstrumentosFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,47 +66,37 @@ public class InstrumentosFragment extends Fragment {
 
     }
 
-
     void actualizarVista(int position) {
-
         /** Cambia imagenes y titulos en de acuerdo a la seleccion establecida*/
-
         TextView textDescripcion;
-
         String[] descripciones = getResources().getStringArray(R.array.descripciones);
-
-        //((TextView)getActivity().findViewById(R.id.txt_descripcion)).setText(descripciones[position]);
-
         textDescripcion = (TextView)getActivity().findViewById(R.id.txt_descripcion);
+        //Corregir cambio de fuente
+        //((TextView)getActivity().findViewById(R.id.txt_descripcion)).setText(descripciones[position]);
         //textDescripcion.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "font/rabiohead.ttf"));
         textDescripcion.setText(descripciones[position]);
-
 
         Drawable instrumento = null;
         Drawable instrumento2 = null;
 
         switch (position) {
-
-            /** Este selector*/
-
+            /** Este selector cambia las imagenes y los titulos del activity de acuedo
+             * a la selecion previamente recibida*/
             case 0:
                 getActivity().setTitle(getString(R.string.instCuerda));
                 instrumento = ContextCompat.getDrawable(getContext(),R.drawable.guitarra);
                 instrumento2 = ContextCompat.getDrawable(getContext(),R.drawable.violin);
                 break;
-
             case 1:
                 getActivity().setTitle(getString(R.string.instPercusion));
                 instrumento = ContextCompat.getDrawable(getContext(),R.drawable.bateria);
                 instrumento2 = ContextCompat.getDrawable(getContext(),R.drawable.timbales);
                 break;
-
             case 2:
                 getActivity().setTitle(getString(R.string.instViento));
                 instrumento = ContextCompat.getDrawable(getContext(),R.drawable.trompeta);
                 instrumento2 = ContextCompat.getDrawable(getContext(),R.drawable.saxofon);
                 break;
-
             case 3:
                 getActivity().setTitle(getString(R.string.instElectricos));
                 instrumento = ContextCompat.getDrawable(getContext(),R.drawable.amplicador);
@@ -120,7 +106,6 @@ public class InstrumentosFragment extends Fragment {
         ((ImageView)getActivity().findViewById(R.id.imgIzquierda)).setImageDrawable(instrumento);
         ((ImageView)getActivity().findViewById(R.id.imgDerecha)).setImageDrawable(instrumento2);
     }
-
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

@@ -42,15 +42,16 @@ public class EjecutarDialog extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setTitle("Confirmmación de Acción")
-                .setMessage("Realmente desea salir de la aplicación?")
-                .setPositiveButton("OK",
+                .setMessage("Desea salir de la aplicación, para ir a nuestro \n" +
+                "sitio web? ")
+                .setPositiveButton("SI",
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 listener.onPossitiveButtonClick();
                             }
                         })
-                .setNegativeButton("CANCELAR",
+                .setNegativeButton("NO",
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
