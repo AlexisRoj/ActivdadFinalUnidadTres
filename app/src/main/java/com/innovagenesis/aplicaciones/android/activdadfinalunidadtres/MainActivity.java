@@ -1,5 +1,6 @@
 package com.innovagenesis.aplicaciones.android.activdadfinalunidadtres;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,8 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.innovagenesis.aplicaciones.android.activdadfinalunidadtres.dialog.EjecutarDialog;
+
 public class MainActivity extends AppCompatActivity
-implements ListaInstrumentos.IListaIntrumentos{
+implements ListaInstrumentos.IListaIntrumentos, EjecutarDialog.OnSimpleDialogListener{
 
 
 
@@ -87,9 +90,9 @@ implements ListaInstrumentos.IListaIntrumentos{
             case R.id.txtfootpageWeb:
                 /** Ejecuta un intent hacia una url **/
 
+                FragmentManager fragmentManager = getFragmentManager();
+                new EjecutarDialog().show(fragmentManager,"SimpleDialog");
 
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.nextu.com"));
-                startActivity(intent);
 
                 break;
         }
@@ -107,5 +110,18 @@ implements ListaInstrumentos.IListaIntrumentos{
         /** Retorma al titulo inicial cuando preciona back**/
         super.onBackPressed();
         this.setTitle(R.string.actionBarInicial);
+    }
+
+    @Override
+    public void onPossitiveButtonClick() {
+
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.nextu.com"));
+        startActivity(intent);
+
+    }
+
+    @Override
+    public void onNegativeButtonClick() {
+
     }
 }
